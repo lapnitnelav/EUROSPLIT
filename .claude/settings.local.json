@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node -e \"const d = require\\('./src/data.js'\\); console.log\\(d.EU_COUNTRIES[9].flag, d.EU_COUNTRIES[9].flag.length, [...d.EU_COUNTRIES[9].flag].map\\(c => c.codePointAt\\(0\\).toString\\(16\\)\\)\\)\")",
+      "Bash(node --input-type=module)"
+    ]
+  }
+}

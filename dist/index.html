@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EUROSPLIT</title>
+  <script type="module" crossorigin src="/assets/index-B0deeWOD.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-DEpZvGn6.css">
+</head>
+<body>
+  <div id="app">
+    <header id="header">
+      <div class="title-area">
+        <h1>EUROSPLIT</h1>
+        <span class="subtitle">EU Country Group Analysis</span>
+      </div>
+      <button id="sources-btn" title="Data sources">Sources ℹ</button>
+    </header>
+
+    <div id="main-area">
+      <div id="map-container">
+        <div id="map-tooltip" class="map-tooltip"></div>
+        <div id="flag-overlay">
+          <div id="flag-overlay-handle">Groups <span id="flag-overlay-toggle">−</span></div>
+          <div id="flag-overlay-body"></div>
+        </div>
+      </div>
+      <button id="sidebar-toggle" title="Toggle sidebar">‹</button>
+      <aside id="sidebar"></aside>
+    </div>
+
+    <div id="build-panel"></div>
+
+    <div id="metrics-bar">
+      <span class="metrics-label">Metrics:</span>
+      <div id="metrics-toggles"></div>
+      <button id="formula-toggle" title="Open power formula builder">⚖ Formula</button>
+      <div id="balance-score"></div>
+    </div>
+
+    <div id="formula-bar" class="hidden">
+      <span class="formula-label">Power formula weights:</span>
+      <div id="formula-inputs"></div>
+      <button id="formula-reset">Reset</button>
+      <div id="formula-score"></div>
+    </div>
+
+    <button id="charts-fullscreen-btn" title="Expand charts">⛶</button>
+    <div id="charts-wrapper">
+      <div id="charts-area"></div>
+    </div>
+  </div>
+
+  <!-- Sources modal -->
+  <div id="sources-modal" class="modal-overlay hidden">
+    <div class="modal-box">
+      <div class="modal-header">
+        <span>Data Sources</span>
+        <button id="sources-close">×</button>
+      </div>
+      <div class="modal-body">
+        <table class="sources-table">
+          <tr><th>Metric</th><th>Source</th><th>Year</th></tr>
+          <tr><td>GDP</td><td>IMF World Economic Outlook</td><td>2023</td></tr>
+          <tr><td>Population</td><td>UN / Eurostat</td><td>2023</td></tr>
+          <tr><td>Area</td><td>ISO / UN Statistics Division</td><td>—</td></tr>
+          <tr><td>Military Power</td><td><a href="https://www.globalfirepower.com/countries-listing.php" target="_blank">Global Firepower Index</a> (inverted, normalised FR=1.0)</td><td>2026</td></tr>
+          <tr><td>Industrial Strength</td><td>World Bank / UNIDO — Manufacturing Value Added (USD bn)</td><td>2022</td></tr>
+          <tr><td>Agricultural Output</td><td>FAO — Gross Agricultural Production Value (USD bn)</td><td>2022</td></tr>
+        </table>
+        <p class="sources-note">Cyprus, Malta military scores estimated from regional peers. Kosovo may not render on map (no official ISO numeric code). All values are approximate and for comparative purposes only.</p>
+      </div>
+    </div>
+  </div>
+
+  <nav id="tab-bar">
+    <button class="tab-btn" data-view="map">
+      <span class="tab-icon">🗺</span>
+      <span class="tab-label">Map</span>
+    </button>
+    <button class="tab-btn active" data-view="build">
+      <span class="tab-icon">✏️</span>
+      <span class="tab-label">Build</span>
+    </button>
+    <button class="tab-btn" data-view="charts">
+      <span class="tab-icon">📊</span>
+      <span class="tab-label">Charts</span>
+    </button>
+  </nav>
+
+  <script src="https://cdn.jsdelivr.net/npm/@twemoji/api@latest/dist/twemoji.min.js" crossorigin="anonymous"></script>
+</body>
+</html>
