@@ -210,7 +210,8 @@ html, body { height: 100%; overflow: hidden; background: var(--bg); color: var(-
   color: var(--text-muted);
   font-size: 15px;
   cursor: pointer;
-  padding: 0 2px;
+  padding: 4px 6px;
+  margin: -4px -6px -4px 0; /* expand tap area without affecting layout */
   line-height: 1;
 }
 .btn-remove:hover { color: var(--danger); }

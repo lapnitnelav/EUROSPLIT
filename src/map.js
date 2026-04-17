@@ -110,7 +110,7 @@ export async function initMap(container) {
   let isDragging = false;
 
   const zoom = d3.zoom()
-    .scaleExtent([2, 15])
+    .scaleExtent([5, 80])
     .on('start', () => { isDragging = false; })
     .on('zoom', (event) => {
       if (event.sourceEvent) isDragging = true;
@@ -135,7 +135,7 @@ export async function initMap(container) {
     .scale(2)
     .translate(-width / 2, -height / 2);
 
-  svg.call(zoom).on('dblclick.zoom', null);
+  svg.call(zoom);
 
   // Apply initial transform after a frame so the zoom handler fires properly
   requestAnimationFrame(() => {

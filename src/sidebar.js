@@ -34,7 +34,15 @@ export function initSidebar(container) {
     sel.append('button')
       .attr('class', 'btn-add-group')
       .text('+ Add Group')
-      .on('click', () => state.addGroup(`Group ${state.groups.length + 1}`));
+      .on('click', () => {
+        const used = new Set(state.groups.map(g => {
+          const m = g.name.match(/^Group (\d+)$/);
+          return m ? parseInt(m[1], 10) : null;
+        }).filter(n => n !== null));
+        let n = 1;
+        while (used.has(n)) n++;
+        state.addGroup(`Group ${n}`);
+      });
 
     // ── Group list ───────────────────────────────────────────────────────────
     if (state.groups.length === 0) {
@@ -61,7 +69,14 @@ export function initSidebar(container) {
         .attr('value', group.name)
         .attr('data-group-id', group.id)
         .attr('data-field', 'name')
-        .on('click', e => e.stopPropagation())
+        .on('click', function(e) {
+          // First tap selects the group without opening the keyboard.
+          // Second tap (already active) falls through to normal focus/edit.
+          if (group.id !== state.selectedGroupId) {
+            e.preventDefault();
+            // bubble up to group-item click → selectGroup()
+          }
+        })
         .on('input', function () {
           const g = state.groups.find(g => g.id === group.id);
           if (g) {
